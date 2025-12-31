@@ -47,15 +47,10 @@ void Translator::loadEnglish() {
 
     // About dialog
     m_translations["about_title"] = "About OnlyAir";
-    m_translations["about_text"] = "<h3>OnlyAir</h3>"
-        "<p>Virtual Camera & Audio for Video Calls</p>"
-        "<p><b>Version 1.0.0</b></p>"
-        "<p>Created by <b>DevDav</b></p>"
-        "<p><a href='https://github.com/0xDevDav/OnlyAir'>github.com/0xDevDav/OnlyAir</a></p>"
-        "<hr>"
-        "<p><b>License:</b> MIT</p>"
-        "<p><b>Built with:</b><br>"
-        "Qt 6 (LGPL) &bull; FFmpeg (LGPL) &bull; Softcam (MIT) &bull; VB-Cable</p>";
+    m_translations["about_tagline"] = "Virtual Camera & Audio for Video Calls";
+    m_translations["about_author"] = "Created by DevDav";
+    m_translations["about_credits"] = "Built with Qt 6 • FFmpeg • Softcam • VB-Cable";
+    m_translations["about_license"] = "MIT License";
 
     // Scene panel
     m_translations["scene_black"] = "Black Scene";
@@ -94,15 +89,10 @@ void Translator::loadItalian() {
 
     // About dialog
     m_translations["about_title"] = "Informazioni su OnlyAir";
-    m_translations["about_text"] = "<h3>OnlyAir</h3>"
-        "<p>Camera e Audio Virtuali per Videochiamate</p>"
-        "<p><b>Versione 1.0.0</b></p>"
-        "<p>Creato da <b>DevDav</b></p>"
-        "<p><a href='https://github.com/0xDevDav/OnlyAir'>github.com/0xDevDav/OnlyAir</a></p>"
-        "<hr>"
-        "<p><b>Licenza:</b> MIT</p>"
-        "<p><b>Creato con:</b><br>"
-        "Qt 6 (LGPL) &bull; FFmpeg (LGPL) &bull; Softcam (MIT) &bull; VB-Cable</p>";
+    m_translations["about_tagline"] = "Camera e Audio Virtuali per Videochiamate";
+    m_translations["about_author"] = "Creato da DevDav";
+    m_translations["about_credits"] = "Creato con Qt 6 • FFmpeg • Softcam • VB-Cable";
+    m_translations["about_license"] = "Licenza MIT";
 
     // Scene panel
     m_translations["scene_black"] = "Scena Nera";

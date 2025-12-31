@@ -22,6 +22,9 @@
 #include <QIcon>
 #include <QMimeData>
 #include <QUrl>
+#include <QDialog>
+#include <QLabel>
+#include <QDesktopServices>
 
 namespace OnlyAir {
 
@@ -353,7 +356,108 @@ void MainWindow::openFile(const QString& path)
 
 void MainWindow::onAbout()
 {
-    QMessageBox::about(this, TR("about_title"), TR("about_text"));
+    QDialog* dialog = new QDialog(this);
+    dialog->setWindowTitle(TR("about_title"));
+    dialog->setFixedSize(360, 320);
+    dialog->setStyleSheet(R"(
+        QDialog {
+            background-color: #1e1e1e;
+            border: 1px solid #3d3d3d;
+        }
+        QLabel {
+            color: #e0e0e0;
+        }
+        QPushButton {
+            background-color: #13b7d2;
+            color: #1e1e1e;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 24px;
+            font-weight: bold;
+            font-size: 12px;
+        }
+        QPushButton:hover {
+            background-color: #15c9e6;
+        }
+    )");
+
+    QVBoxLayout* layout = new QVBoxLayout(dialog);
+    layout->setSpacing(12);
+    layout->setContentsMargins(30, 25, 30, 25);
+
+    // App name
+    QLabel* titleLabel = new QLabel("OnlyAir");
+    titleLabel->setStyleSheet("font-size: 28px; font-weight: bold; color: #13b7d2;");
+    titleLabel->setAlignment(Qt::AlignCenter);
+    layout->addWidget(titleLabel);
+
+    // Tagline
+    QLabel* taglineLabel = new QLabel(TR("about_tagline"));
+    taglineLabel->setStyleSheet("font-size: 13px; color: #888;");
+    taglineLabel->setAlignment(Qt::AlignCenter);
+    layout->addWidget(taglineLabel);
+
+    // Version
+    QLabel* versionLabel = new QLabel("v1.0.0");
+    versionLabel->setStyleSheet("font-size: 11px; color: #666; margin-bottom: 10px;");
+    versionLabel->setAlignment(Qt::AlignCenter);
+    layout->addWidget(versionLabel);
+
+    layout->addSpacing(5);
+
+    // Separator
+    QFrame* separator = new QFrame();
+    separator->setFrameShape(QFrame::HLine);
+    separator->setStyleSheet("background-color: #3d3d3d;");
+    separator->setFixedHeight(1);
+    layout->addWidget(separator);
+
+    layout->addSpacing(5);
+
+    // Author
+    QLabel* authorLabel = new QLabel(TR("about_author"));
+    authorLabel->setStyleSheet("font-size: 12px; color: #aaa;");
+    authorLabel->setAlignment(Qt::AlignCenter);
+    layout->addWidget(authorLabel);
+
+    // GitHub link
+    QLabel* githubLabel = new QLabel("<a href='https://github.com/0xDevDav/OnlyAir' style='color: #13b7d2; text-decoration: none;'>github.com/0xDevDav/OnlyAir</a>");
+    githubLabel->setStyleSheet("font-size: 12px;");
+    githubLabel->setAlignment(Qt::AlignCenter);
+    githubLabel->setOpenExternalLinks(true);
+    githubLabel->setCursor(Qt::PointingHandCursor);
+    layout->addWidget(githubLabel);
+
+    layout->addSpacing(10);
+
+    // Credits
+    QLabel* creditsLabel = new QLabel(TR("about_credits"));
+    creditsLabel->setStyleSheet("font-size: 10px; color: #666;");
+    creditsLabel->setAlignment(Qt::AlignCenter);
+    layout->addWidget(creditsLabel);
+
+    // License
+    QLabel* licenseLabel = new QLabel(TR("about_license"));
+    licenseLabel->setStyleSheet("font-size: 10px; color: #555;");
+    licenseLabel->setAlignment(Qt::AlignCenter);
+    layout->addWidget(licenseLabel);
+
+    layout->addStretch();
+
+    // Close button
+    QPushButton* closeBtn = new QPushButton("OK");
+    closeBtn->setFixedWidth(100);
+    closeBtn->setCursor(Qt::PointingHandCursor);
+    connect(closeBtn, &QPushButton::clicked, dialog, &QDialog::accept);
+
+    QHBoxLayout* btnLayout = new QHBoxLayout();
+    btnLayout->addStretch();
+    btnLayout->addWidget(closeBtn);
+    btnLayout->addStretch();
+    layout->addLayout(btnLayout);
+
+    dialog->exec();
+    dialog->deleteLater();
 }
 
 void MainWindow::updateUI()
