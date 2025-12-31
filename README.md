@@ -36,13 +36,14 @@ OnlyAir lets you stream pre-recorded videos as your webcam and microphone feed i
 
 ### Quick Start
 
-1. **Launch OnlyAir** (run the installer first, or launch from `build\bin\Release\OnlyAir.exe`)
-2. **Load a video** by clicking "Open Video" or dragging a file onto the window
-3. **Configure your video call application:**
+1. **Build and install** following the [Build](#building-from-source) instructions below
+2. **Launch OnlyAir**
+3. **Load a video** by clicking "Open Video" or dragging a file onto the window
+4. **Configure your video call application:**
    - Set camera to: `OnlyAir Virtual Camera`
    - Set microphone to: `CABLE Output (VB-Audio Virtual Cable)`
-4. **Click on the Video scene** to start streaming
-5. **Click on the Black scene** to show a black screen (useful for breaks)
+5. **Click on the Video scene** to start streaming
+6. **Click on the Black scene** to show a black screen (useful for breaks)
 
 ### Controls
 
