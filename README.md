@@ -10,9 +10,8 @@
 
 <p align="center">
   <a href="#features">Features</a> •
-  <a href="#installation">Installation</a> •
-  <a href="#usage">Usage</a> •
   <a href="#building-from-source">Build</a> •
+  <a href="#usage">Usage</a> •
   <a href="#acknowledgments">Credits</a>
 </p>
 
@@ -33,27 +32,11 @@ OnlyAir lets you stream pre-recorded videos as your webcam and microphone feed i
 - **Bilingual Interface** — English and Italian language support
 - **Fully Offline** — All dependencies included, no internet connection required
 
-## Requirements
-
-- Windows 10 or Windows 11 (64-bit)
-- No additional software required — everything is included in the installer
-
-## Installation
-
-1. Download the latest release from [Releases](https://github.com/0xDevDav/OnlyAir/releases)
-2. Run `OnlyAirSetup-1.0.0.exe`
-3. Follow the installation wizard
-
-The installer will automatically:
-- Install OnlyAir and all required libraries
-- Register the virtual camera driver (Softcam)
-- Install the virtual audio driver (VB-Cable)
-
 ## Usage
 
 ### Quick Start
 
-1. **Launch OnlyAir** from the Start Menu or Desktop shortcut
+1. **Launch OnlyAir** (run the installer first, or launch from `build\bin\Release\OnlyAir.exe`)
 2. **Load a video** by clicking "Open Video" or dragging a file onto the window
 3. **Configure your video call application:**
    - Set camera to: `OnlyAir Virtual Camera`
@@ -86,11 +69,30 @@ The installer will automatically:
 
 ## Building from Source
 
-### Prerequisites
+### Requirements
 
+- Windows 10 or Windows 11 (64-bit)
 - **Visual Studio 2022** with C++ Desktop Development workload
 - **Qt 6.x** (Widgets, OpenGL, OpenGLWidgets modules)
 - **CMake 3.20+**
+- **Inno Setup 6** (for creating the installer)
+
+### Dependencies
+
+Before building, you need to download the following dependencies:
+
+1. **FFmpeg** (LGPL shared libraries)
+   - Download from [BtbN/FFmpeg-Builds](https://github.com/BtbN/FFmpeg-Builds/releases)
+   - Extract to `third_party/ffmpeg/`
+
+2. **VB-Cable** (Virtual Audio)
+   - Download from [vb-audio.com/Cable](https://vb-audio.com/Cable/)
+   - Place `VBCABLE_Setup_x64.exe` in `third_party/vbcable/`
+
+Or run the setup script:
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/setup_dependencies.ps1
+```
 
 ### Build Steps
 
@@ -103,16 +105,17 @@ cd OnlyAir
 cmake -S . -B build -G "Visual Studio 17 2022" -A x64 ^
   -DQt6_DIR="C:/Qt/6.7.0/msvc2022_64/lib/cmake/Qt6"
 
-# Build
+# Build OnlyAir
 cmake --build build --config Release --target OnlyAir
 
 # Build Softcam virtual camera driver
 msbuild third_party/softcam/softcam.sln /p:Configuration=Release /p:Platform=x64
+
+# Copy softcam.dll to build output
+copy third_party\softcam\x64\Release\softcam.dll build\bin\Release\
 ```
 
 ### Creating the Installer
-
-Requires [Inno Setup 6](https://jrsoftware.org/isinfo.php):
 
 ```bash
 "C:/Program Files (x86)/Inno Setup 6/ISCC.exe" installer/OnlyAirSetup.iss
