@@ -49,7 +49,13 @@ void Translator::loadEnglish() {
     m_translations["about_title"] = "About OnlyAir";
     m_translations["about_text"] = "<h3>OnlyAir</h3>"
         "<p>Virtual Camera & Audio for Video Calls</p>"
-        "<p>Version 1.0.0</p>";
+        "<p><b>Version 1.0.0</b></p>"
+        "<p>Created by <b>DevDav</b></p>"
+        "<p><a href='https://github.com/0xDevDav/OnlyAir'>github.com/0xDevDav/OnlyAir</a></p>"
+        "<hr>"
+        "<p><b>License:</b> MIT</p>"
+        "<p><b>Built with:</b><br>"
+        "Qt 6 (LGPL) &bull; FFmpeg (LGPL) &bull; Softcam (MIT) &bull; VB-Cable</p>";
 
     // Scene panel
     m_translations["scene_black"] = "Black Scene";
@@ -90,7 +96,13 @@ void Translator::loadItalian() {
     m_translations["about_title"] = "Informazioni su OnlyAir";
     m_translations["about_text"] = "<h3>OnlyAir</h3>"
         "<p>Camera e Audio Virtuali per Videochiamate</p>"
-        "<p>Versione 1.0.0</p>";
+        "<p><b>Versione 1.0.0</b></p>"
+        "<p>Creato da <b>DevDav</b></p>"
+        "<p><a href='https://github.com/0xDevDav/OnlyAir'>github.com/0xDevDav/OnlyAir</a></p>"
+        "<hr>"
+        "<p><b>Licenza:</b> MIT</p>"
+        "<p><b>Creato con:</b><br>"
+        "Qt 6 (LGPL) &bull; FFmpeg (LGPL) &bull; Softcam (MIT) &bull; VB-Cable</p>";
 
     // Scene panel
     m_translations["scene_black"] = "Scena Nera";
