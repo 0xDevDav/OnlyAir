@@ -1,0 +1,64 @@
+# Build directories
+build/
+out/
+cmake-build-*/
+
+# IDE files
+.vs/
+.vscode/
+*.user
+*.suo
+*.sln.docstates
+
+# Qt generated files
+*_autogen/
+moc_*.cpp
+ui_*.h
+qrc_*.cpp
+
+# Compiled files
+*.obj
+*.o
+*.exe
+*.dll
+*.lib
+*.pdb
+*.ilk
+*.exp
+
+# Installer output
+installer/output/
+
+# FFmpeg binaries (download separately)
+third_party/ffmpeg/*.dll
+third_party/ffmpeg/*.lib
+
+# VB-Cable installer (download separately)
+third_party/vbcable/*.exe
+
+# Softcam build output
+third_party/softcam/x64/
+third_party/softcam/Debug/
+third_party/softcam/Release/
+third_party/softcam/.vs/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+*~
+
+# Claude (internal)
+.claude/
+CLAUDE_NOTES.md
+
+# Windows special files
+nul
+installer/nul

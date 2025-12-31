@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file alias="OnlyAir.ico">OnlyAir.ico</file>
+    </qresource>
+</RCC>

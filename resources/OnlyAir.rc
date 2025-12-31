@@ -1,0 +1,3 @@
+// Windows Resource file for OnlyAir
+// Icon resource - IDI_ICON1 is the main application icon
+IDI_ICON1 ICON "OnlyAir.ico"

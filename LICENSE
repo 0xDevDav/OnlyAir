@@ -1,0 +1,47 @@
+MIT License
+
+Copyright (c) 2025 DevDav
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+-------------------------------------------------------------------------------
+
+THIRD-PARTY LICENSES
+
+This project includes or depends on the following third-party components,
+each with their own licenses:
+
+1. Softcam (https://github.com/tshino/softcam)
+   License: MIT License
+   Copyright (c) 2020 tshino
+
+2. FFmpeg (https://ffmpeg.org/)
+   License: LGPL v2.1+ or GPL v2+
+   The builds used are LGPL-licensed shared libraries.
+
+3. Qt 6 (https://www.qt.io/)
+   License: LGPL v3
+   Used under the open-source LGPL license.
+
+4. VB-Cable (https://vb-audio.com/Cable/)
+   License: Donationware - Free for personal use
+   Copyright (c) VB-Audio Software
+   Distributed as-is per VB-Cable license terms.
+   VB-Cable is developed by VB-Audio Software.
+   Consider donating at https://vb-audio.com/Cable/
