@@ -83,6 +83,28 @@
             display: block;
         }
 
+        /* Video */
+        .video-container {
+            margin: 0 auto 60px;
+            max-width: 850px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(19, 183, 210, 0.1);
+            border: 1px solid #2a2a4a;
+        }
+
+        .video-container video {
+            width: 100%;
+            display: block;
+        }
+
+        .video-title {
+            text-align: center;
+            color: #13b7d2;
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+        }
+
         /* Section */
         section {
             padding: 60px 20px;
@@ -290,6 +312,14 @@
 
         <div class="screenshot-container">
             <img src="screenshot.png" alt="OnlyAir Interface" class="screenshot">
+        </div>
+
+        <h3 class="video-title">See It In Action</h3>
+        <div class="video-container">
+            <video controls playsinline poster="screenshot.png">
+                <source src="video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
     </section>
 
