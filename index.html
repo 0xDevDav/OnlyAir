@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnlyAir - Virtual Camera & Audio for Video Calls</title>
+    <meta name="description" content="Stream pre-recorded videos as your webcam and microphone in any video call app. Works with Zoom, Teams, Meet, Discord and more.">
+    <meta name="keywords" content="virtual camera, virtual webcam, video calls, zoom, teams, meet, discord, streaming">
+    <meta property="og:title" content="OnlyAir - Virtual Camera & Audio for Video Calls">
+    <meta property="og:description" content="Stream pre-recorded videos as your webcam and microphone in any video call app.">
+    <meta property="og:image" content="screenshot.png">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/x-icon" href="resources/OnlyAir.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f1a 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 20px 60px;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 24px;
+            filter: drop-shadow(0 4px 20px rgba(19, 183, 210, 0.3));
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #13b7d2 0%, #667eea 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+        }
+
+        .tagline {
+            font-size: 1.4rem;
+            color: #888;
+            margin-bottom: 12px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 500px;
+            margin: 0 auto 40px;
+        }
+
+        /* Screenshot */
+        .screenshot-container {
+            margin: 40px auto 60px;
+            max-width: 850px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(19, 183, 210, 0.1);
+            border: 1px solid #2a2a4a;
+        }
+
+        .screenshot {
+            width: 100%;
+            display: block;
+        }
+
+        /* Section */
+        section {
+            padding: 60px 20px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #13b7d2;
+        }
+
+        /* Features Grid */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .feature {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 28px;
+            transition: all 0.3s ease;
+        }
+
+        .feature:hover {
+            background: rgba(19, 183, 210, 0.05);
+            border-color: rgba(19, 183, 210, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .feature h3 {
+            color: #13b7d2;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature p {
+            color: #999;
+            font-size: 0.95rem;
+        }
+
+        /* How it works */
+        .steps {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 24px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 10px;
+            border-left: 3px solid #13b7d2;
+        }
+
+        .step-number {
+            background: #13b7d2;
+            color: #1a1a2e;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .step-content p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .step-content code {
+            background: rgba(19, 183, 210, 0.15);
+            color: #13b7d2;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+
+        /* Requirements */
+        .requirements {
+            text-align: center;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .requirements ul {
+            list-style: none;
+            display: inline-block;
+            text-align: left;
+        }
+
+        .requirements li {
+            color: #888;
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .requirements li::before {
+            content: "✓";
+            color: #13b7d2;
+            font-weight: bold;
+        }
+
+        /* CTA Section */
+        .cta {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(180deg, transparent 0%, rgba(19, 183, 210, 0.05) 100%);
+        }
+
+        .cta h2 {
+            color: #fff;
+            margin-bottom: 16px;
+        }
+
+        .cta p {
+            color: #888;
+            margin-bottom: 32px;
+            font-size: 1.1rem;
+        }
+
+        .telegram-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, #0088cc 0%, #0066aa 100%);
+            color: #fff;
+            text-decoration: none;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 136, 204, 0.3);
+        }
+
+        .telegram-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(0, 136, 204, 0.5);
+        }
+
+        .telegram-btn svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #555;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1.1rem;
+            }
+
+            .hero {
+                padding: 60px 20px 40px;
+            }
+
+            section {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <div class="container">
+            <img src="resources/OnlyAir.ico" alt="OnlyAir Logo" class="logo">
+            <h1>OnlyAir</h1>
+            <p class="tagline">Virtual Camera & Audio for Video Calls</p>
+            <p class="subtitle">Stream pre-recorded videos as your webcam and microphone in any video call app</p>
+        </div>
+
+        <div class="screenshot-container">
+            <img src="screenshot.png" alt="OnlyAir Interface" class="screenshot">
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>Features</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3>📹 Virtual Camera</h3>
+                    <p>Works with Zoom, Microsoft Teams, Google Meet, Discord, Skype and any app that uses a webcam</p>
+                </div>
+                <div class="feature">
+                    <h3>🔊 Virtual Audio</h3>
+                    <p>Routes your video's audio directly to your microphone input for seamless sound</p>
+                </div>
+                <div class="feature">
+                    <h3>🎚️ Simple & Studio Modes</h3>
+                    <p>Quick mode for easy use, Studio mode for full control with scene transitions</p>
+                </div>
+                <div class="feature">
+                    <h3>✨ Smooth Transitions</h3>
+                    <p>Professional crossfade effects between black screen and video content</p>
+                </div>
+                <div class="feature">
+                    <h3>📁 Multi-format Support</h3>
+                    <p>Play MP4, AVI, MKV, MOV, WMV, WebM and many more video formats</p>
+                </div>
+                <div class="feature">
+                    <h3>🌐 Fully Offline</h3>
+                    <p>No internet connection required. Everything works locally on your computer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Launch OnlyAir</h3>
+                        <p>Open the application on your Windows PC</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Load Your Video</h3>
+                        <p>Drag & drop or click to open any video file</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Configure Your Call App</h3>
+                        <p>Set camera to <code>OnlyAir Virtual Camera</code> and microphone to <code>CABLE Output</code></p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Press Play</h3>
+                        <p>Your video is now your webcam!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>System Requirements</h2>
+            <div class="requirements">
+                <ul>
+                    <li>Windows 10 or Windows 11 (64-bit)</li>
+                    <li>~100 MB disk space</li>
+                    <li>No special hardware required</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Get OnlyAir</h2>
+            <p>Interested? Contact me on Telegram to get the program</p>
+            <a href="https://t.me/PuntoGcode" class="telegram-btn" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                Contact @PuntoGcode
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>OnlyAir — Your video, your camera</p>
+        </div>
+    </footer>
+
+</body>
+</html>
